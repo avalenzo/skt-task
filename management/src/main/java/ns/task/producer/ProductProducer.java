@@ -16,7 +16,6 @@ public class ProductProducer {
     private static final Logger logger = LoggerFactory.getLogger(ProductProducer.class);
     private RabbitTemplate rabbitTemplate;
 
-    @Autowired
     public ProductProducer(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
