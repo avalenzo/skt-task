@@ -1,4 +1,4 @@
-package com.ns.task.pojo;
+package ns.task.pojo;
 
 import java.math.BigDecimal;
 
@@ -30,5 +30,14 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
