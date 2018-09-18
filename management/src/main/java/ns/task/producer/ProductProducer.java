@@ -34,17 +34,5 @@ public class ProductProducer {
         return (List<Product>) products;
     }
 
-    @RabbitListener(queues = RabbitConfig.QUEUE_ADD_PRODUCT)
-    public void addProductListener(Product product) {
-        logger.info("Product received: {}", product );
-    }
-
-    @RabbitListener(queues = RabbitConfig.QUEUE_GET_PRODUCTS)
-    public void getProductsListener() {
-        logger.info("ListRequest Received");
-    }
-
-
-
 
 }
