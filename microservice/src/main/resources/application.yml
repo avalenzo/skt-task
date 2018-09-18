@@ -4,5 +4,3 @@ spring:
     port: 5673
     username: guest
     password: guest
-  server:
-    port: 8081

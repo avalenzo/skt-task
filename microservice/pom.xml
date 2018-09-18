@@ -9,21 +9,26 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <project.version>0.0.1-SNAPSHOT</project.version>
+        <spring-boot.version>1.5.7.RELEASE</spring-boot.version>
+    </properties>
+
     <artifactId>microservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${project.version}</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
-            <version>1.5.7.RELEASE</version>
+            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
-            <version>1.5.7.RELEASE</version>
+            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
@@ -37,7 +42,7 @@
         <dependency>
             <groupId>com.ns</groupId>
             <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -47,13 +52,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
