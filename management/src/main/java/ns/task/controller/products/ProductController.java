@@ -5,7 +5,10 @@ import ns.task.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +40,7 @@ public class ProductController {
 
     @PostMapping(value = "/product")
     public String addProduct(ModelMap model, @ModelAttribute("product") Product product) {
-        model.addAttribute("code", product.getCode());
-        model.addAttribute("name", product.getName());
-        model.addAttribute("price", product.getPrice());
+        model.addAttribute("newProduct", product);
 
         productService.addProduct(product);
         return "product";

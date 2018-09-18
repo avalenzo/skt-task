@@ -10,13 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <management.version>0.0.1-SNAPSHOT</management.version>
-        <common.version>0.0.1-SNAPSHOT</common.version>
+        <project.version>0.0.1-SNAPSHOT</project.version>
     </properties>
 
     <artifactId>management</artifactId>
     <packaging>war</packaging>
-    <version>${management.version}</version>
+    <version>${project.version}</version>
 
     <dependencies>
         <dependency>
@@ -49,7 +48,7 @@
         <dependency>
             <groupId>com.ns</groupId>
             <artifactId>common</artifactId>
-            <version>${common.version}</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
 
