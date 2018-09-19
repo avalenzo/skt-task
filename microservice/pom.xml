@@ -11,34 +11,29 @@
 
     <properties>
         <project.version>0.0.1-SNAPSHOT</project.version>
-        <spring-boot.version>1.5.7.RELEASE</spring-boot.version>
     </properties>
-
-    <artifactId>microservice</artifactId>
-    <version>${project.version}</version>
-    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.ns</groupId>
             <artifactId>common</artifactId>
@@ -56,5 +51,8 @@
         </plugins>
     </build>
 
+    <artifactId>microservice</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
 </project>

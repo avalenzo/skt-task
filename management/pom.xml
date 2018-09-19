@@ -13,10 +13,6 @@
         <project.version>0.0.1-SNAPSHOT</project.version>
     </properties>
 
-    <artifactId>management</artifactId>
-    <packaging>war</packaging>
-    <version>${project.version}</version>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -68,5 +64,9 @@
             </plugin>
         </plugins>
     </build>
+
+    <artifactId>management</artifactId>
+    <packaging>war</packaging>
+    <version>${project.version}</version>
 
 </project>
