@@ -4,15 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-	<groupId>ns</groupId>
-	<artifactId>skt-task</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<modules>
-		<module>management</module>
-		<module>common</module>
-		<module>microservice</module>
-	</modules>
-	<packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>ns</groupId>
+    <artifactId>skt-task</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>management</module>
+        <module>common</module>
+        <module>microservice</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,16 +29,6 @@
         <project.version>0.0.1-SNAPSHOT</project.version>
     </properties>
 
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.7.RELEASE</version>
-        <relativePath/>
-    </parent>
-
     <name>skt-task</name>
-    <description></description>
-
 
 </project>

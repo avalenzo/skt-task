@@ -20,9 +20,11 @@ public class ProductProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendProduct(Product product) {
-        rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_PRODUCTS, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
+    public Product sendProduct(Product product) {
+        Object productSaved = rabbitTemplate.convertSendAndReceive(RabbitConfig.EXCHANGE_PRODUCTS, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
         logger.info("Producer: Product '{}' was sent", product.getCode());
+
+        return (Product) productSaved;
     }
 
     public List<Product> requestProducts() {
