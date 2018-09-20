@@ -1,6 +1,6 @@
 package ns.task.controller.products;
 
-import ns.task.pojo.Product;
+import ns.task.model.Product;
 import ns.task.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

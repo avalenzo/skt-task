@@ -4,3 +4,8 @@ spring:
     port: 5673
     username: guest
     password: guest
+  datasource:
+    url: jdbc:postgresql://localhost:5432/skttask
+    username: postgres
+    password: n1*3Fail
+    driver-class-name: org.postgresql.Driver

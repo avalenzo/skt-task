@@ -1,6 +1,6 @@
 package ns.task.service;
 
-import ns.task.pojo.Product;
+import ns.task.model.Product;
 import ns.task.producer.ProductProducer;
 import org.springframework.stereotype.Service;
 
