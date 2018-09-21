@@ -6,8 +6,8 @@ spring:
     password: ${rabbit-pass}
   datasource:
     url: jdbc:postgresql://localhost:5432/skttask
-    username: postgres
-    password: n1*3Fail
+    username: ${db-user}
+    password: ${db-pass}
     driver-class-name: org.postgresql.Driver
   main:
     web-environment: false
