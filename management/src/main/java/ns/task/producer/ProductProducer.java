@@ -20,7 +20,7 @@ public class ProductProducer {
     }
 
     public Product sendProduct(Product product) {
-        Object productSaved = rabbitTemplate.convertSendAndReceive(RabbitConfig.EXCHANGE_PRODUCTS, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
+        Object productSaved = rabbitTemplate.convertSendAndReceive(RabbitConfig.EXCHANGE_PRODUCT, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
         logger.info("Producer: Product '{}' was sent", product.getCode());
 
         return (Product) productSaved;

@@ -9,3 +9,5 @@ spring:
     username: postgres
     password: n1*3Fail
     driver-class-name: org.postgresql.Driver
+  main:
+    web-environment: false

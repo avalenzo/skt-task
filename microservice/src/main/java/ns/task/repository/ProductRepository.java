@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Procedure
+    @Procedure(value = "addProduct")
     void addProduct(String code, String name, BigDecimal price);
 
-    @Query(nativeQuery = true, value = "select * from getAllProducts()")
+    @Query(value = "select * from getAllProducts()", nativeQuery = true)
     List<Product> getAllProducts();
 }

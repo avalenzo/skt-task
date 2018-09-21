@@ -12,7 +12,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name="productid")
     private BigDecimal id;
 
     @Column
@@ -23,6 +23,15 @@ public class Product {
 
     @Column
     private BigDecimal price;
+
+    public Product() {
+    }
+
+    public Product(String code, String name, BigDecimal price) {
+        this.code = code;
+        this.name = name;
+        this.price = price;
+    }
 
     public BigDecimal getId() {
         return id;
