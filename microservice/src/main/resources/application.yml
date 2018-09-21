@@ -2,8 +2,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5673
-    username: guest
-    password: guest
+    username: ${rabbit-user}
+    password: ${rabbit-pass}
   datasource:
     url: jdbc:postgresql://localhost:5432/skttask
     username: postgres
@@ -11,3 +11,5 @@ spring:
     driver-class-name: org.postgresql.Driver
   main:
     web-environment: false
+
+
