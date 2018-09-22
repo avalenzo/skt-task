@@ -1,8 +1,4 @@
 spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
   rabbitmq:
     host: localhost
     port: 5673
