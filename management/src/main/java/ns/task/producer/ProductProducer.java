@@ -19,9 +19,13 @@ public class ProductProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public Product sendProduct(Product product) {
+    public Product sendProduct(Product product) throws Exception {
         Object productSaved = rabbitTemplate.convertSendAndReceive(RabbitConfig.EXCHANGE_PRODUCT, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
         logger.info("Producer: Product '{}' was sent", product.getCode());
+
+        if (productSaved == null) {
+            throw new Exception("Error while saving the product");
+        }
 
         return (Product) productSaved;
     }
