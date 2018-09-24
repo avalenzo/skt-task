@@ -2,6 +2,8 @@ package ns.task.service;
 
 import ns.task.model.Product;
 import ns.task.producer.ProductProducer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private ProductProducer producer;
+    private static final Logger logger = LoggerFactory.getLogger(ProductProducer.class);
 
     public ProductServiceImpl(ProductProducer producer) {
         this.producer = producer;
@@ -17,7 +20,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product addProduct(Product product) {
-        return producer.sendProduct(product);
+        try {
+            product = producer.sendProduct(product);
+        } catch (Exception e) {
+            logger.error("Error sending the product:", e);
+        }
+
+        return product;
     }
 
     @Override
