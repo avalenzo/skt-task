@@ -1,11 +1,10 @@
 package ns.task.producer;
 
 import ns.task.config.RabbitConfig;
-import ns.task.pojo.Product;
+import ns.task.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,9 +19,13 @@ public class ProductProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public Product sendProduct(Product product) {
-        Object productSaved = rabbitTemplate.convertSendAndReceive(RabbitConfig.EXCHANGE_PRODUCTS, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
+    public Product sendProduct(Product product) throws Exception {
+        Object productSaved = rabbitTemplate.convertSendAndReceive(RabbitConfig.EXCHANGE_PRODUCT, RabbitConfig.ROUTING_KEY_ADD_PRODUCT, product);
         logger.info("Producer: Product '{}' was sent", product.getCode());
+
+        if (productSaved == null) {
+            throw new Exception("Error while saving the product");
+        }
 
         return (Product) productSaved;
     }

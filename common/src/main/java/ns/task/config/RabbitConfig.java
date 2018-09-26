@@ -20,6 +20,7 @@ public class RabbitConfig {
 
     public static final String QUEUE_ADD_PRODUCT = "addProduct";
     public static final String QUEUE_GET_PRODUCTS = "listProducts";
+    public static final String EXCHANGE_PRODUCT = "exchangeProduct";
     public static final String EXCHANGE_PRODUCTS = "exchangeProducts";
     public static final String ROUTING_KEY_ADD_PRODUCT = "routingKeyAdd";
     public static final String ROUTING_KEY_GET_PRODUCTS = "routingKeyGet";
@@ -36,16 +37,20 @@ public class RabbitConfig {
     }
 
     @Bean
-    public DirectExchange directExchange() {
+    public DirectExchange directExchangeProduct() {
+        return new DirectExchange(EXCHANGE_PRODUCT);
+    }
+
+    @Bean
+    public DirectExchange directExchangeList() {
         return new DirectExchange(EXCHANGE_PRODUCTS);
     }
 
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
-        template.setExchange(directExchange().getName());
         template.setMessageConverter(jsonMessageConverter());
-        template.setReplyTimeout(10000);
+        template.setReplyTimeout(30000);
 
         return template;
     }
@@ -58,14 +63,14 @@ public class RabbitConfig {
     @Bean
     public Binding addProductBinding() {
         return BindingBuilder.bind(addProductQueue())
-                .to(directExchange())
+                .to(directExchangeProduct())
                 .with(ROUTING_KEY_ADD_PRODUCT);
     }
 
     @Bean
     public Binding getProductsBinding() {
         return BindingBuilder.bind(getProductsQueue())
-                .to(directExchange())
+                .to(directExchangeList())
                 .with(ROUTING_KEY_GET_PRODUCTS);
     }
 }

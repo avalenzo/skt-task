@@ -1,6 +1,6 @@
 package ns.task.controller.products;
 
-import ns.task.pojo.Product;
+import ns.task.model.Product;
 import ns.task.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,7 +33,7 @@ public class ProductController {
     public String newProduct(Model model) {
         model.addAttribute("product", new Product());
 
-        return "product";
+        return "createProduct";
     }
 
     @PostMapping(value = "/product")
@@ -42,7 +41,7 @@ public class ProductController {
         model.addAttribute("newProduct", product);
 
         productService.addProduct(product);
-        return "product";
+        return "productConfirm";
     }
 
 
