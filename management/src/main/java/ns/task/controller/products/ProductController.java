@@ -33,7 +33,7 @@ public class ProductController {
     public String newProduct(Model model) {
         model.addAttribute("product", new Product());
 
-        return "product";
+        return "createProduct";
     }
 
     @PostMapping(value = "/product")
